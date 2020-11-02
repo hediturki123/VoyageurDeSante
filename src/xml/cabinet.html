@@ -1,0 +1,72 @@
+<html xmlns:act="http://www.ujf-grenoble.fr/l3miage/actes" xmlns:cabinet="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>cabinet.xsl</title>
+        <link rel="stylesheet" type="text/css" href="cabinet.css">
+        <script type="text/javascript" src="cabinet.js"></script>
+    </head>
+    <body>
+        <h1>Cabinet d'infirmieres</h1>
+        <h2>Bonjour 
+                    Sarah   ,                 
+                </h2>
+        <h2>Aujourd'hui vous avez 2
+                    patients
+                </h2>
+        <p>
+            <h3>
+                <b>Patients : </b>
+                <h3>Patient :</h3>
+                <li>Nom : Al&eacute;cole</li>
+                <li>Pr&eacute;nom : Yvon</li>
+                <li>Adresse : 
+                6
+                50
+                avenue F&eacute;lix Viallet
+                Grenoble
+                38031
+            </li>
+                <li>
+                    Acte : n&deg;109 , 
+            
+            Injection intraveineuse directe en s&eacute;rie.
+        
+            Injection sous-cutan&eacute;e.
+        
+                    <br>
+                        <input type="button" class="Privat" value="Facture" onclick="
+                        openFacture('Yvon', 
+                                    'Al&eacute;cole', 
+                                    '109')
+                    ">
+                    </br>
+                </li>
+                <h3>Patient :</h3>
+                <li>Nom : Turki</li>
+                <li>Pr&eacute;nom : Hedi</li>
+                <li>Adresse : 
+                1
+                38
+                avenue de stalingrad
+                Grenoble
+                38031
+            </li>
+                <li>
+                    Acte : n&deg;109 , 
+            
+            Injection intraveineuse directe en s&eacute;rie.
+        
+            Injection sous-cutan&eacute;e.
+        
+                    <br>
+                        <input type="button" class="Privat" value="Facture" onclick="
+                        openFacture('Hedi', 
+                                    'Turki', 
+                                    '109')
+                    ">
+                    </br>
+                </li>
+            </h3>
+        </p>
+    </body>
+</html>

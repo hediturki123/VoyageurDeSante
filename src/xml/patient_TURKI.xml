@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html   xmlns="http://www.ujf-grenoble.fr/l3miage/patient_NOMPATIENT"
+        xmlns:act="http://www.ujf-grenoble.fr/l3miage/actes" 
+        xmlns:cabinet="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <title>patientTransformation.xsl</title>
+    </head>
+    <body>
+        <h3>Patient :</h3>
+        <li>Nom : Turki</li>
+        <li>Prénom : Hedi</li>
+        <li>Sexe : M</li>
+        <li>Date de naissance : 1998-05-28</li>
+        <li>Adresse : 
+                1
+                38
+                avenue de stalingrad
+                Grenoble
+                38031
+            </li><li>Numéro sécurité sociale : 198081305545892</li><li>Visite : 
+                <li>Date :2015-12-08</li><li>Intervenant :001</li><li>Acte : 
+            Injection intraveineuse directe en série.
+        
+            Injection sous-cutanée.
+        </li></li></body></html>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    version="1.0"
+    targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.ujf-grenoble.fr/l3miage/medical"
+    elementFormDefault="qualified"
+>
+    <xsd:element name="cabinet" type="CabinetInfirmier"/>
+
+    <xsd:complexType name="CabinetInfirmier">
+        <xsd:sequence>
+            <xsd:element name="nom" type="xsd:string"/>
+            <xsd:element name="adresse" type="Adresse"/>
+            <xsd:element name="infirmiers" type="Infirmiers"/>
+            <xsd:element name="patients" type="Patients"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Adresse">
+        <xsd:sequence>
+            <xsd:element name="étage" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="numéro" type="xsd:int" minOccurs="0"/>
+            <xsd:element name="rue" type="xsd:string"/>
+            <xsd:element name="ville" type="NomPropre"/>
+            <xsd:element name="codePostal" type="CodePostal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="NomPropre">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-ZÀ-ÖŒŠØ-ÝŸ][a-zÞ-öœšø-ÿ]*((\-?[A-ZÀ-ÖŒŠØ-ÝŸ]?|\s[A-ZÀ-ÖŒŠØ-ÝŸ])[a-zÞ-öœšø-ÿ]*)*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- Les codes postaux peuvent contenir quasiment n'importe quelle combinaison de 5 chiffres, sauf 00000. -->
+    <xsd:simpleType name="CodePostal">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(0[1-9]|[1-9][0-9])([0-9]{3})"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Personne">
+        <xsd:sequence>
+            <xsd:element name="nom" type="NomPropre"/>
+            <xsd:element name="prénom" type="NomPropre"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Infirmiers">
+        <xsd:sequence>
+            <xsd:element name="infirmier" type="Infirmier" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Infirmier">
+        <xsd:complexContent>
+            <xsd:extension base="Personne">
+                <xsd:sequence>
+                    <xsd:element name="photo" type="xsd:anyURI"/>
+                </xsd:sequence>
+                <xsd:attribute name="id" type="IdInfirmier"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- Les identifiants d'infirmier commencent à 001 et s'arrêtent (logiquement) à 999. -->
+    <xsd:simpleType name="IdInfirmier">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="00[1-9]|0[1-9][0-9]|[1-9][0-9]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Patients">
+        <xsd:sequence>
+            <xsd:element name="patient" type="Patient" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Patient">
+        <xsd:complexContent>
+            <xsd:extension base="Personne">
+                <xsd:sequence>
+                    <xsd:element name="sexe" type="Sexe"/>
+                    <xsd:element name="naissance" type="xsd:date"/>
+                    <xsd:element name="numéro" type="NIR"/>
+                    <xsd:element name="adresse" type="Adresse"/>
+                    <xsd:element name="visite" type="Visite"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- M = Homme ; F = Femme ; A = Autre -->
+    <xsd:simpleType name="Sexe">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="M|F|A"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!--
+        La regexp utilisée ici suit la construction indiquée sur la page Wikipédia du NIR.
+        => https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France#Signification_des_chiffres_du_NIR
+    -->
+    <xsd:simpleType name="NIR">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[1-478]([0-9]{2})(0[1-9]|1[0-2]|62|63)(2[ABab]|[0-9]{2})(00[1-9]|0[1-9][0-9]|[1-8][0-9]{2}|9[0-8][0-9]|990)(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})(0[1-9]|[1-8][0-9]|9[0-7])"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Visite">
+        <xsd:sequence>
+            <xsd:element name="acte" type="Acte" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:date" use="required"/>
+        <xsd:attribute name="intervenant" type="IdInfirmier"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Acte">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="id" type="IdActe" use="required"/>
+                <xsd:attribute name="type" type="TypeActe"/>
+                <xsd:attribute name="clé" type="CleActe"/>
+                <xsd:attribute name="coef" type="CoefActe"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!--
+        Les types ci-dessous ont été définis à l'aide du document fourni dans l'énoncé.
+        => https://moodle.caseine.org/pluginfile.php/25291/mod_resource/content/18/projetCabinetInfirmier/actes.xml
+        Il est bien entendu possible de modifier les expressions régulières ou l'intervalle de ceux-ci pour ajouter
+        des actes NGAP existants mais encore non pris en compte ici.
+    -->
+
+    <xsd:simpleType name="IdActe">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="10[1-9]|11[0-3]|20[0-4]|30[0-3]|40[1-3]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="TypeActe">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="p(i|c|l)|sd"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="CleActe">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="A(MI|IS)|DI"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="CoefActe">
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="1.0"/>
+            <xsd:maxInclusive value="5.0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
