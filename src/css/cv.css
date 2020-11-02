@@ -1,5 +1,116 @@
+/* CV de Hedi TURKI SANEKLI */
+
 #hedi-turki-sanekli td { border : solid 2px; }
 
 #hedi-turki-sanekli h1 { font-style: italic; }
 
 #hedi-turki-sanekli h2 { color : blue; }
+
+
+/* CV de Alexis YVON */
+
+#alexis-yvon body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+#alexis-yvon header,
+#alexis-yvon footer {
+    background-color: lightgrey;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#alexis-yvon header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+#alexis-yvon header > * {
+    flex: 0 1 auto;
+    margin-left: 25px;
+}
+
+#alexis-yvon header > div > img {
+    border-radius: 125px;
+    max-width: 125px;
+    height: auto;
+}
+
+#alexis-yvon header > h2 {
+    color: dimgrey;
+    font-style: italic;
+}
+
+#alexis-yvon main {
+    display: flex;
+}
+
+#alexis-yvon main > section {
+    flex: auto;
+    width: 50%;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+#alexis-yvon main > #parcours {
+    background-color: rgba(128,0,0,calc(1/3));
+}
+
+#alexis-yvon main > #competences {
+    background-color: rgba(0,0,128,calc(1/3));
+}
+
+#alexis-yvon main > #parcours > h3 {
+    color: rgb(128,0,0);
+}
+
+#alexis-yvon main > #competences > h3 {
+    color: rgb(0,0,128);
+}
+
+#alexis-yvon main > section > hr {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, calc(2/3)), rgba(0, 0, 0, 0));
+}
+
+#alexis-yvon main > #parcours > hr {
+    background-image: linear-gradient(to right, rgba(128, 0, 0, calc(2/3)), rgba(128, 0, 0, 0));
+}
+
+#alexis-yvon main > #competences > hr {
+    background-image: linear-gradient(to right, rgba(0, 0, 128, calc(2/3)), rgba(0, 0, 128, 0));
+}
+
+#alexis-yvon main > section > table tr > td {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#alexis-yvon main > section > table tr > td:first-child {
+    text-align: center;
+}
+
+#alexis-yvon main > section > table tr > td:first-child + td > h4,
+#alexis-yvon main > section > table tr > td:first-child + td > em,
+#alexis-yvon main > section > table tr > td:first-child + td > p {
+    margin: 0.2em 0;
+}
+
+#alexis-yvon main > section > div > ul > li {
+    list-style-type: square;
+}
+
+#alexis-yvon main > section > div > ul > li::marker {
+    color: rgb(0,0,128);
+}
+
+#alexis-yvon footer {
+    background-color: rgba(0,128,0,calc(1/3));
+}
+
+#alexis-yvon footer > p {
+    margin-left: 25px;
+}
