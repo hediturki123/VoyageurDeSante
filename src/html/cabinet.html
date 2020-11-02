@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:cm="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Infirmi&egrave;re Sarah</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+    </head>
+    <body>
+        <section class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">
+                    Bonjour <strong>Sarah</strong>
+                </h1>
+                <p class="lead">Vous avez 3 patient(s).</p>
+            </div>
+            <ul>
+                <li>
+                    <p>Yvon AL&Eacute;COLE</p>
+                    <address>
+                        Avenue F&eacute;lix Viallet
+                        <br>
+                        38031 Grenoble
+                        <br>
+                        &Eacute;tage 6
+                    </address>
+                    <p>1 acte(s) &agrave; effectuer :</p>
+                    <ul>
+                        <li>
+            Injection sous-cutan&eacute;e
+        </li>
+                    </ul>
+                    <br>
+                    <button onclick="
+                    openFacture('Yvon',
+                    'Al&eacute;cole',
+                    '')
+                ">Facture</button>
+                </li>
+                <li>
+                    <p>Elvire OROUGE</p>
+                    <address>
+                        Rond-point de la Croix de Vie
+                        <br>
+                        38700 La Tronche
+                    </address>
+                    <p>1 acte(s) &agrave; effectuer :</p>
+                    <ul>
+                        <li>
+                    Pansement de br&ucirc;lure &eacute;tendue
+                </li>
+                    </ul>
+                    <br>
+                    <button onclick="
+                    openFacture('Elvire',
+                    'Orouge',
+                    'Pansement de br&ucirc;lure &eacute;tendue')
+                ">Facture</button>
+                </li>
+                <li>
+                    <p>Oscare PIEN</p>
+                    <address>
+                        Rue Casimir Brenier
+                        <br>
+                        38000 Grenoble
+                    </address>
+                    <p>2 acte(s) &agrave; effectuer :</p>
+                    <ul>
+                        <li>
+                    Pr&eacute;l&egrave;vement par ponction veineuse directe
+                </li>
+                        <li>
+                    Injection intraveineuse directe isol&eacute;e d'anthalgiques
+                </li>
+                    </ul>
+                    <br>
+                    <button onclick="
+                    openFacture('Oscare',
+                    'Pien',
+                    'Pr&eacute;l&egrave;vement par ponction veineuse directe')
+                ">Facture</button>
+                </li>
+            </ul>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script><script src="../js/bootstrap.min.js"></script><script>
+                    
+                        function openFacture(prenom, nom, actes) {
+                            var width  = 500;
+                            var height = 300;
+                            if(window.innerWidth) {
+                                var left = (window.innerWidth-width)/2;
+                                var top = (window.innerHeight-height)/2;
+                            }
+                            else {
+                                var left = (document.body.clientWidth-width)/2;
+                                var top = (document.body.clientHeight-height)/2;
+                            }
+                            var factureWindow = window.open('','facture','menubar=yes, scrollbars=yes, top='+top+', left='+left+', width='+width+', height='+height+'');
+                            factureText = "Facture pour : " + prenom + " " + nom;
+                            factureWindow.document.write(factureText);
+                            }
+                    
+                </script>
+    </body>
+</html>
