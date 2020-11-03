@@ -39,13 +39,12 @@
             <xsd:pattern value="(0[1-9]|[1-9][0-9])([0-9]{3})"/>
         </xsd:restriction>
     </xsd:simpleType>
-
-    <xsd:complexType name="Personne">
-        <xsd:sequence>
-            <xsd:element name="nom" type="NomPropre"/>
-            <xsd:element name="prénom" type="NomPropre"/>
-        </xsd:sequence>
-    </xsd:complexType>
+    
+      <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:date">
+            <xsd:pattern value="\d{4}-\d\d-\d\d"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 
     <xsd:complexType name="Infirmiers">
         <xsd:sequence>
@@ -54,16 +53,20 @@
     </xsd:complexType>
 
     <xsd:complexType name="Infirmier">
-        <xsd:complexContent>
-            <xsd:extension base="Personne">
-                <xsd:sequence>
-                    <xsd:element name="photo" type="xsd:anyURI"/>
-                </xsd:sequence>
-                <xsd:attribute name="id" type="IdInfirmier"/>
-            </xsd:extension>
-        </xsd:complexContent>
+        <xsd:sequence>
+            <xsd:element name="nom" type="NomPropre"/>
+            <xsd:element name="prénom" type="NomPropre"/>
+            <xsd:element name="photo" type="xsd:anyURI"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="IdInfirmier"/>
     </xsd:complexType>
 
+    <xsd:simpleType name="anyURI" id="anyURI">
+        <xsd:restriction base="xsd:string">
+            <xsd:whiteSpace value="collapse" fixed="true"/>
+        </xsd:restriction> 
+    </xsd:simpleType>
+    
     <!-- Les identifiants d'infirmier commencent à 001 et s'arrêtent (logiquement) à 999. -->
     <xsd:simpleType name="IdInfirmier">
         <xsd:restriction base="xsd:string">
@@ -78,25 +81,22 @@
     </xsd:complexType>
 
     <xsd:complexType name="Patient">
-        <xsd:complexContent>
-            <xsd:extension base="Personne">
-                <xsd:sequence>
-                    <xsd:element name="sexe" type="Sexe"/>
-                    <xsd:element name="naissance" type="xsd:date"/>
-                    <xsd:element name="numéro" type="NIR"/>
-                    <xsd:element name="adresse" type="Adresse"/>
-                    <xsd:element name="visite" type="Visite" maxOccurs="unbounded"/>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
+            <xsd:sequence>
+                <xsd:element name="nom" type="NomPropre"/>
+                <xsd:element name="prénom" type="NomPropre"/>
+                <xsd:element name="sexe" type="Sexe"/>
+                <xsd:element name="naissance" type="date"/>
+                <xsd:element name="numéro" type="NIR"/>
+                <xsd:element name="adresse" type="Adresse"/>
+                <xsd:element name="visite" type="Visite" maxOccurs="unbounded"/>
+            </xsd:sequence>
     </xsd:complexType>
 
-    <!-- M = Homme ; F = Femme ; I = Inconnu / indéfini -->
+    <!-- M = Homme ; F = Femme -->
     <xsd:simpleType name="Sexe">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="M"/>
             <xsd:enumeration value="F"/>
-            <xsd:enumeration value="I"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -114,7 +114,7 @@
         <xsd:sequence>
             <xsd:element name="acte" type="Acte" maxOccurs="unbounded"/>
         </xsd:sequence>
-        <xsd:attribute name="date" type="xsd:date" use="required"/>
+        <xsd:attribute name="date" type="date" use="required"/>
         <xsd:attribute name="intervenant" type="IdInfirmier"/>
     </xsd:complexType>
 
