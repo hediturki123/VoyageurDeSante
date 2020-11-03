@@ -20,7 +20,10 @@
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
                 <title>
-                    <xsl:text>Voyageur de Santé • <xsl:value-of select="$intervenant/cm:prénom"/> <xsl:value-of select="$intervenant/cm:nom"/></xsl:text>
+                    <xsl:text>Voyageur de Santé • </xsl:text>
+                    <xsl:value-of select="$intervenant/cm:prénom"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="$intervenant/cm:nom"/>
                 </title>
 
                 <!-- CSS -->
@@ -135,76 +138,18 @@
                     </p>
                     <h6>NIR</h6>
                     <p><xsl:value-of select="$patient/cm:numéro"/></p>
-                </div>
-            </div>
-            <!--
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">
-                        <xsl:choose>
-                            <xsl:when test="cm:sexe = 'M'">
-                                <xsl:text>M. </xsl:text>
-                            </xsl:when>
-                            <xsl:when test="cm:sexe = 'F'">
-                                <xsl:text>Mme </xsl:text>
-                            </xsl:when>
-                        </xsl:choose>
-                        <xsl:value-of select="cm:prénom"/>
-                        <xsl:text> </xsl:text>
-                        <xsl:value-of select="translate(cm:nom, $smallcase, $uppercase)"/>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        <xsl:text>Visite le </xsl:text>
-                        <xsl:value-of select="
-                        concat(
-                            substring($dateVisite,9,2),'/',
-                            substring($dateVisite,6,2),'/',
-                            substring($dateVisite,1,4)
-                        )
-                        "/>
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <xsl:apply-templates select="cm:adresse"/>
-                </div>
-
-                <xsl:choose>
-                    <xsl:when test="count($actesPatient) &gt; 0">
-                        <div class="card-body">
-                            <button
-                                type="button" class="btn btn-block text-left border bg-light text-dark"
-                                data-toggle="collapse" data-target=".actes-{$nirPatient}"
-                                aria-expanded="false" aria-controls=".actes-{$nirPatient}"
-                            >
-                                <xsl:text>Soins à effectuer </xsl:text>
-                                <span class="badge badge-primary"><xsl:value-of select="count($actesPatient)"/></span>
-                            </button>
-                            <ul class="actes-{$nirPatient} list-group list-group collapse">
-                                <xsl:apply-templates select="$actesPatient"/>
-                            </ul>
-                        </div>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <div class="card-body">
-                            <p class="card-text"><em>Aucun acte renseigné.</em></p>
-                        </div>
-                    </xsl:otherwise>
-                </xsl:choose>
-
-                <div class="card-footer">
                     <xsl:element name="button">
                         <xsl:attribute name="type">button</xsl:attribute>
                         <xsl:attribute name="class">btn btn-primary</xsl:attribute>
                         <xsl:attribute name="onclick">
-                            openFacture('<xsl:value-of select="cm:prénom"/>',
-                            '<xsl:value-of select="cm:nom"/>',
-                            '<xsl:value-of select="normalize-space($actesPatient)"/>')
+                            openFacture('<xsl:value-of select="$patient/cm:prénom"/>',
+                            '<xsl:value-of select="$patient/cm:nom"/>',
+                            '<xsl:value-of select="$patient/cm:visite/cm:acte"/>')
                         </xsl:attribute>
                         <xsl:text>Facture</xsl:text>
                     </xsl:element>
                 </div>
             </div>
-            -->
         </li>
     </xsl:template>
 

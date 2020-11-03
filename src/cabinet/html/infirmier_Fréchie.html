@@ -1,0 +1,124 @@
+<!DOCTYPE html><html xmlns:cm="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Voyageur de Sant&eacute; &bull; Sarah Fr&eacute;chie</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/infirmier.css">
+    </head>
+    <body>
+        <section class="container-fluid">
+            <div class="jumbotron">
+                <div class="media">
+                    <img src="../img/infirmier/sarah.jpg" alt="Sarah" class="align-self-center img-thumbnail mr-4" style="width:10%;">
+                    <div class="media-body align-self-center">
+                        <h1 class="display-4">
+                            Bonjour <strong>Sarah</strong>
+                        </h1>
+                        <p class="lead">Vous avez 4 visite(s) &agrave; venir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <ul class="list-group">
+                <li itemscope="" itemtype="https://schema.org/Patient" class="list-group-item">
+                    <div class="media">
+                        <img src="../img/patient/Al%C3%A9cole_Yvon.jpg" alt="Yvon" class="align-self-start img-thumbnail mr-3" style="width:10%;" itemprop="image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">
+                                <small>M.</small> <span itemprop="name">Yvon</span> <span itemprop="familyName">AL&Eacute;COLE</span> <small>- visite le</small> 08/12/2015
+                            </h5>
+                            <h6>Naissance</h6>
+                            <p>02/08/1998</p>
+                            <h6>NIR</h6>
+                            <p>198081305545892</p>
+                            <button type="button" class="btn btn-primary" onclick="
+                            openFacture('Yvon',
+                            'Al&eacute;cole',
+                            '')
+                        ">Facture</button>
+                        </div>
+                    </div>
+                </li>
+                <li itemscope="" itemtype="https://schema.org/Patient" class="list-group-item">
+                    <div class="media">
+                        <img src="../img/patient/Orouge_Elvire.jpg" alt="Elvire" class="align-self-start img-thumbnail mr-3" style="width:10%;" itemprop="image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">
+                                <small>Mme</small> <span itemprop="name">Elvire</span> <span itemprop="familyName">OROUGE</span> <small>- visite le</small> 08/12/2015
+                            </h5>
+                            <h6>Naissance</h6>
+                            <p>08/03/1982</p>
+                            <h6>NIR</h6>
+                            <p>282036902305218</p>
+                            <button type="button" class="btn btn-primary" onclick="
+                            openFacture('Elvire',
+                            'Orouge',
+                            'Pansement de br&ucirc;lure &eacute;tendue')
+                        ">Facture</button>
+                        </div>
+                    </div>
+                </li>
+                <li itemscope="" itemtype="https://schema.org/Patient" class="list-group-item">
+                    <div class="media">
+                        <img src="../img/patient/Orouge_Elvire.jpg" alt="Elvire" class="align-self-start img-thumbnail mr-3" style="width:10%;" itemprop="image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">
+                                <small>Mme</small> <span itemprop="name">Elvire</span> <span itemprop="familyName">OROUGE</span> <small>- visite le</small> 22/12/2015
+                            </h5>
+                            <h6>Naissance</h6>
+                            <p>08/03/1982</p>
+                            <h6>NIR</h6>
+                            <p>282036902305218</p>
+                            <button type="button" class="btn btn-primary" onclick="
+                            openFacture('Elvire',
+                            'Orouge',
+                            'Pansement de br&ucirc;lure &eacute;tendue')
+                        ">Facture</button>
+                        </div>
+                    </div>
+                </li>
+                <li itemscope="" itemtype="https://schema.org/Patient" class="list-group-item">
+                    <div class="media">
+                        <img src="../img/patient/Kapo%C3%ABtla_Xavier.jpg" alt="Xavier" class="align-self-start img-thumbnail mr-3" style="width:10%;" itemprop="image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">
+                                <small>M.</small> <span itemprop="name">Xavier</span> <span itemprop="familyName">KAPO&Euml;TLA</span> <small>- visite le</small> 15/12/2015
+                            </h5>
+                            <h6>Naissance</h6>
+                            <p>02/08/2011</p>
+                            <h6>NIR</h6>
+                            <p>111083306303521</p>
+                            <button type="button" class="btn btn-primary" onclick="
+                            openFacture('Xavier',
+                            'Kapo&euml;tla',
+                            'Injection de plusieurs allerg&egrave;nes afin d'&ecirc;tre d&eacute;sensibilis&eacute;')
+                        ">Facture</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script><script src="../js/bootstrap.min.js"></script><script>
+                    
+                    function openFacture(prenom, nom, actes) {
+                        var width  = 500;
+                        var height = 300;
+                        if(window.innerWidth) {
+                            var left = (window.innerWidth-width)/2;
+                            var top = (window.innerHeight-height)/2;
+                        }
+                        else {
+                            var left = (document.body.clientWidth-width)/2;
+                            var top = (document.body.clientHeight-height)/2;
+                        }
+                        var factureWindow = window.open('','facture','menubar=yes, scrollbars=yes, top='+top+', left='+left+', width='+width+', height='+height+'');
+                        factureText = "Facture pour : " + prenom + " " + nom;
+                        factureWindow.document.write(factureText);
+                        }
+                    
+                </script>
+    </body>
+</html>
