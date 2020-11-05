@@ -123,21 +123,49 @@
                         <span itemprop="name"><xsl:value-of select="$patient/cm:prénom"/></span>
                         <xsl:text> </xsl:text>
                         <span itemprop="familyName"><xsl:value-of select="translate($patient/cm:nom, $smallcase, $uppercase)"/></span>
-                        <xsl:text> </xsl:text>
-                        <small>- visite le</small>
+                    </h5>
+                    <h6 class="mt-0 mb-4">
+                        <small>Visite le</small>
                         <xsl:text> </xsl:text>
                         <xsl:call-template name="formatDate">
                             <xsl:with-param name="date" select="@date"/>
                         </xsl:call-template>
-                    </h5>
-                    <h6>Naissance</h6>
-                    <p>
-                        <xsl:call-template name="formatDate">
-                            <xsl:with-param name="date" select="$patient/cm:naissance"/>
-                        </xsl:call-template>
-                    </p>
-                    <h6>NIR</h6>
-                    <p><xsl:value-of select="$patient/cm:numéro"/></p>
+                    </h6>
+                    <table class="table table-sm table-borderless mb-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">Naissance</th>
+                                <th scope="col">Adresse</th>
+                                <th scope="col">NIR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <xsl:call-template name="formatDate">
+                                        <xsl:with-param name="date" select="$patient/cm:naissance" />
+                                    </xsl:call-template>
+                                </td>
+                                <td>
+                                    <xsl:apply-templates select="$patient/cm:adresse"/>
+                                </td>
+                                <td>
+                                    <xsl:value-of select="$patient/cm:numéro" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped mb-4">
+                        <thead class="thead-acts">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Soin à effectuer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <xsl:apply-templates select="cm:acte"/>
+                        </tbody>
+                    </table>
                     <xsl:element name="button">
                         <xsl:attribute name="type">button</xsl:attribute>
                         <xsl:attribute name="class">btn btn-primary</xsl:attribute>
@@ -174,23 +202,26 @@
                     "/>
                 </xsl:otherwise>
             </xsl:choose>
-            <br/>
+            <xsl:text>, </xsl:text>
             <xsl:value-of select="cm:codePostal"/>
             <xsl:text> </xsl:text>
-            <xsl:value-of select="cm:ville"/>
-
+            <xsl:value-of select="translate(cm:ville,$smallcase,$uppercase)"/>
             <xsl:if test="count(cm:étage) &gt; 0">
-                <br/>
-                <xsl:text>&#201;tage </xsl:text>
+                <xsl:text> (&#201;tage </xsl:text>
                 <xsl:value-of select="cm:étage"/>
+                <xsl:text>)</xsl:text>
             </xsl:if>
         </address>
     </xsl:template>
 
     <xsl:template match="cm:acte">
         <xsl:variable name="idActe" select="@id"/>
-        <li class="list-group-item">
-            <xsl:choose>
+        <tr>
+            <td>
+                <xsl:value-of select="$idActe"/>
+            </td>
+            <td>
+                <xsl:choose>
                 <xsl:when test="not(.='')">
                     <xsl:value-of select="normalize-space(.)"/>
                 </xsl:when>
@@ -198,9 +229,11 @@
                     <xsl:value-of select="normalize-space($ngap//acte[@id=$idActe])"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </li>
+            </td>
+        </tr>
     </xsl:template>
 
+    <!-- Template de formatage de la date au format jj/mm/aaaa. -->
     <xsl:template name="formatDate">
         <xsl:param name="date"/>
         <xsl:value-of select="
