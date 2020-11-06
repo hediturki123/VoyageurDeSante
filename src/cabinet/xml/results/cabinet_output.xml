@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><patient xmlns:cm="http://www.ujf-grenoble.fr/l3miage/medical">
+    <nom>Orouge</nom>
+    <prénom>Elvire</prénom>
+    <sexe>F</sexe>
+    <naissance>1982-03-08</naissance>
+    <numéro>282036902305218</numéro>
+    <adresse>
+        <rue>rond-point de la Croix de Vie</rue>
+        <ville>La Tronche</ville>
+        <codePostal>38700</codePostal>
+    </adresse>
+    <visite date="2015-12-08">
+        <intervenant>
+            <nom>Fréchie</nom>
+            <prénom>Sarah</prénom>
+        </intervenant>
+        <acte>Pansement de brûlure étendue</acte>
+    </visite>
+    <visite date="2015-12-15">
+        <intervenant>
+            <nom>Stické</nom>
+            <prénom>Sophie</prénom>
+        </intervenant>
+        <acte>Réfection du pansement de brûlure</acte>
+    </visite>
+    <visite date="2015-12-22">
+        <intervenant>
+            <nom>Ochon</nom>
+            <prénom>Paul</prénom>
+        </intervenant>
+        <acte>Réfection éventuelle du pansement de brûlure</acte>
+    </visite>
+</patient>

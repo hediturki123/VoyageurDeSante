@@ -5,7 +5,13 @@
 Ce projet a été réalisé par *Hedi TURKI SANEKLI* et *Alexis YVON* (groupe 3) dans le cadre du cours de **Langages pour le Web** en L3 MIAGE de l'Université Grenoble Alpes au cours des mois d'octobre et de novembre 2020.
 
 ## Transformations
-
+* Pour la transformation d'un patient : 
+* Cette transformation est responsable en réalité de 2 transformations : `fichier xml -> fichier xml -> page html`. 
+* Faire une première transformation du fichier `cabinet.xml` et un fichier `patient_xml.xsl` en un fichier `output.xml` par exemple, qui doit être placé dans le répertoire results (sous répertoire de xml).
+* Ensuite il faut faire une deuxième transformation du fichier `output.xml` en un fichier `html` qui doit être aussi placé dans le répertoire results.
+* Pour la transformation d'un infirmier :
+* Il faut faire la transformation du fichier `cabinet.xml` et du fichier `infirmier.xsl` pour créé un fichier `cabinet.html` dans le répertoire results
+:warning: On met toujours les fichiers dans le répertoire results (sous répertoire xml) pour le css puisse s'appliquer dessus. On a mit quelques fichiers déjà transformés à votre disposition, `patient_Alécole.xml` et `patient_Pien.xml`
 
 
 ## Remarques
