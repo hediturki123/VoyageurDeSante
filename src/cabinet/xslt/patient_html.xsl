@@ -57,7 +57,7 @@
             </div>
         </div>
     </section>
-    <section class="container">
+    <section class="container mb-2">
         <div class="row row-cols-1">
             <div class="col card m-2">
                 <div class="card-body">
@@ -113,7 +113,7 @@
         </div>
     </section>
     <section class="container">
-        <div class="row row-cols-3">
+        <div class="row row-cols-3 card-deck">
             <xsl:apply-templates select="visite"/>
         </div>
     </section>
@@ -121,37 +121,39 @@
 
 <!-- Template pour l'affichage des visites sous forme de cartes. -->
 <xsl:template match="patient/visite">
-    <div class="col card m-2">
-        <div class="card-body">
-            <h5 class="card-title">
-                <xsl:text>Visite du </xsl:text>
-                <xsl:call-template name="formatDate">
-                    <xsl:with-param name="date" select="@date"/>
-                </xsl:call-template>
-            </h5>
-            <h6 class="card-subtitle mb-3 text-muted">
-                <xsl:text>Intervenant(e) : </xsl:text>
-                <strong>
-                    <xsl:value-of select="intervenant/prénom"/>
-                    <xsl:text> </xsl:text>
-                    <xsl:value-of select="translate(intervenant/nom,$smallcase,$uppercase)"/>
-                </strong>
-            </h6>
-            <table class="table table-bordered table-sm table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <xsl:text>Soins à effectuer </xsl:text>
-                            <span class="badge badge-primary badge-pill">
-                                <xsl:value-of select="count(acte)"/>
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <xsl:apply-templates select="acte"/>
-                </tbody>
-            </table>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <xsl:text>Visite du </xsl:text>
+                    <xsl:call-template name="formatDate">
+                        <xsl:with-param name="date" select="@date"/>
+                    </xsl:call-template>
+                </h5>
+                <h6 class="card-subtitle mb-3 text-muted">
+                    <xsl:text>Intervenant(e) : </xsl:text>
+                    <strong>
+                        <xsl:value-of select="intervenant/prénom"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="translate(intervenant/nom,$smallcase,$uppercase)"/>
+                    </strong>
+                </h6>
+                <table class="table table-bordered table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <xsl:text>Soins à effectuer </xsl:text>
+                                <span class="badge badge-primary badge-pill">
+                                    <xsl:value-of select="count(acte)"/>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:apply-templates select="acte"/>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </xsl:template>
