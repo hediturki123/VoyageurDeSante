@@ -4,7 +4,39 @@
 
 #hedi-turki-sanekli h1 { font-style: italic; }
 
-#hedi-turki-sanekli h2 { color : blue; }
+#hedi-turki-sanekli h2 { 
+    color : blue; 
+    text-align: center;
+}
+
+
+#hedi-turki-sanekli header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-left: 50px;
+    height: 250px;
+    text-align: center;
+}
+
+#hedi-turki-sanekli body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#hedi-turki-sanekli footer {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 50px;
+    background-color: rgba(0,128,0,calc(1/3));
+}
+
+
+#hedi-turki-sanekli table {
+    text-align: center;
+    margin-left: 550px;
+}
+
 
 
 /* CV de Alexis YVON */
