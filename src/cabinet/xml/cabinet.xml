@@ -46,7 +46,7 @@
             <visite date="2015-12-08" intervenant="001">
                 <acte id="109"/>
             </visite>
-            <visite date="2016-01-05" intervenant="004">
+            <visite date="2016-01-05" intervenant="003">
                 <acte id="110"/>
             </visite>
         </patient>
@@ -68,7 +68,7 @@
             <visite date="2015-12-15" intervenant="002">
                 <acte id="300">Réfection du pansement de brûlure</acte>
             </visite>
-            <visite date="2015-12-22" intervenant="001">
+            <visite date="2015-12-22" intervenant="003">
                 <acte id="300">Réfection éventuelle du pansement de brûlure</acte>
             </visite>
         </patient>
@@ -88,7 +88,7 @@
                 <acte id="101">Prélèvement par ponction veineuse directe</acte>
                 <acte id="105">Injection intraveineuse directe isolée d'anthalgiques</acte>
             </visite>
-            <visite date="2016-01-08"  intervenant="004">
+            <visite date="2016-01-08"  intervenant="001">
                 <acte id="101"/>
             </visite>
         </patient>

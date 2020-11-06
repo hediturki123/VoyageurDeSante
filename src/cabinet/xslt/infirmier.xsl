@@ -27,8 +27,8 @@
                 </title>
 
                 <!-- CSS -->
-                <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-                <link rel="stylesheet" href="../css/infirmier.css"/>
+                <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="../../css/main.css"/>
             </head>
             <body>
                 <section class="container-fluid">
@@ -36,7 +36,7 @@
                         <div class="media">
                             <xsl:element name="img">
                                 <xsl:attribute name="src">
-                                    <xsl:text>../img/infirmier/</xsl:text>
+                                    <xsl:text>../../img/infirmier/</xsl:text>
                                     <xsl:value-of select="//cm:infirmier[@id=$destinedId]/cm:photo"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="alt"><xsl:value-of select="//cm:infirmier[@id=$destinedId]/cm:prénom"/></xsl:attribute>
@@ -99,7 +99,7 @@
             <div class="media">
                 <xsl:element name="img">
                     <xsl:attribute name="src">
-                        <xsl:text>../img/patient/</xsl:text>
+                        <xsl:text>../../img/patient/</xsl:text>
                         <xsl:value-of select="$patient/cm:nom"/>
                         <xsl:text>_</xsl:text>
                         <xsl:value-of select="$patient/cm:prénom"/>
