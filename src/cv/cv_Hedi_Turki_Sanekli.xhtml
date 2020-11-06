@@ -2,138 +2,128 @@
 <html id="hedi-turki-sanekli" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Hedi TURKI SANEKLI</title>
+    <title >Hedi TURKI SANEKLI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="css/cv.css"/>
-
-    <script type="text/javascript">
-        window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Mes compétences en pourcentage"
-                },
-                legend: {
-                    maxWidth: 350,
-                    itemWidth: 120
-                },
-                data: [{
-                    type: "pie",
-                    showInLegend: true,
-                    legendText: "{indexLabel}",
-                    dataPoints: [{
-                            y: 30,
-                            indexLabel: "Java"
-                        },
-                        {
-                            y: 30,
-                            indexLabel: "Python"
-                        },
-                        {
-                            y: 30,
-                            indexLabel: "C/C++"
-                        },
-                        {
-                            y: 10,
-                            indexLabel: "R"
-                        },
-                    ]
-                }]
-            });
-            chart.render();
-        }
-    </script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="stylesheet" href="../../css/cv.css"/>
 </head>
 
-<body style="background-color:rgba(235, 238, 240, 0.918);">
-    <img src="img/photoHedi.jpg" height="100" width="auto" />
+<header>
+    <img src="../../img/cv/photoHedi.jpg" height="100" width="auto" />
 
-    <h1>Hedi TURKI SANEKLI <a href="https://github.com/hediturki123"><img src="img/githublogo.png" height="30"
+    <h1>Hedi TURKI SANEKLI <a href="https://github.com/hediturki123"><img src="../../img/cv/githublogo.png" height="30"
                 width="auto" /> </a></h1>
     <h2 style="color:red;">Webmaster</h2>
+    </header>
+<body>
+    <main>
+        <section id="experience">
+            <h2>Expérience professionnelle</h2>
+            <hr />
+            <h3 style="margin-left: 50px;"><li>Webmaster - Université Grenoble Alpes - <i>de Septembre 2020 - Aujourd'hui</i></li>
+            <li>Technicien Informatique - STLM - <i>de Juin 2018 - Août</i> </li></h3>
+        </section>
+        <hr />
+        <h2>Formation</h2>
+        <hr />
+        <section id="parcours">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>L3 Miage </td>
+                        <td>
+                            Algorithmique et Programmation orientée objet
+                            <hr/>Langage pour le Web
+                            <hr/>Management des systèmes d'Information et Gestion commerciale
+                            <hr/>Architecture logicielle et matérielle
+                            <hr/>Systèmes et réseaux
 
-    <h2>Expérience professionnelle</h2>
-    <hr />
-    <h3>Webmaster - Université Grenoble Alpes - <i>de Septembre 2020 - Aujourd'hui</i> </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L3 Informatique</td>
+                        <td>
+                            Programmation orientée objet
+                            <hr/>Algorithmique et modélisation
+                            <hr/>Modèles de calcul
+                            <hr/>Architecture logicielle et matérielle
+                            <hr/>Systèmes et réseaux
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L2 Informatique</td>
+                        <td>
+                            Statistiques et Probabilités
+                            <hr/>Algorithmique
+                            <hr/>Projet en C
+                            <hr/>Architecture logicielle et matérielle
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L1 Mathématiques et Informatique</td>
+                        <td>
+                            Algèbre linéaire
+                            <hr/>Programmation en OCaml
+                            <hr/>Mathématiques Appliquées : Scilab
+                            <hr/>Statistiques et Probabilités
+                            <hr/>Physique et mécanique
+                        </td>
+                    </tr>
 
-    <hr />
-    <h2>Formation</h2>
-    <hr />
-    <table>
-        <tbody>
-            <tr>
-                <td>L3 Miage </td>
-                <td>
-                    <li>Algorithmique et Programmation orientée objet</li>
-                    <li>Langage pour le Web</li>
-                    <li>Management des systèmes d'Information et Gestion commerciale</li>
-                    <li>Architecture logicielle et matérielle</li>
-                    <li>Systèmes et réseaux</li>
+                    <tr>
+                        <td>Lycée Louis Pasteur - Tunis</td>
+                        <td>
+                            Baccalauréat Scientifique spécialité Mathématiques, Mention Bien
+                        </td>
+                    </tr>
 
-                </td>
-            </tr>
-            <tr>
-                <td>L3 Informatique</td>
-                <td>
-                    <li>Programmation orientée objet</li>
-                    <li>Algorithmique et modélisation</li>
-                    <li>Modèles de calcul</li>
-                    <li>Architecture logicielle et matérielle</li>
-                    <li>Systèmes et réseaux</li>
-                </td>
-            </tr>
-            <tr>
-                <td>L2 Informatique</td>
-                <td>
-                    <li>Statistiques et Probabilités</li>
-                    <li>Algorithmique</li>
-                    <li>Projet en C</li>
-                    <li>Architecture logicielle et matérielle</li>
-                </td>
-            </tr>
-            <tr>
-                <td>L1 Mathématiques et Informatique</td>
-                <td>
-                    <li>Algèbre linéaire</li>
-                    <li>Programmation en OCaml</li>
-                    <li>Mathématiques Appliquées : Scilab</li>
-                    <li>Statistiques et Probabilités</li>
-                    <li>Physique et mécanique</li>
-                </td>
-            </tr>
+                </tbody>
+            </table>
+        </section>
+        <hr />
 
-            <tr>
-                <td>Lycée Louis Pasteur - Tunis</td>
-                <td>
-                    <li>Baccalauréat Scientifique spécialité Mathématiques, Mention Bien</li>
-                </td>
-            </tr>
+        <section id="competences">
+            <h2>Compétences</h2>
+            <hr />
+            <h3 style="margin-left: 50px;">Java, Python, R, C/C++, Git</h3>
+            
 
-        </tbody>
-    </table>
+            <hr />
+        </section>
+        <section id="projets">
+            <h2>Quelques projets personnels</h2>
+            <hr />
+            <h3 style="margin-left: 50px;">
+                <li><a href="https://github.com/hediturki123/ARMSIM">ARMSIM</a> - <i>Python</i></li>
+                <li><a href="https://github.com/hediturki123/MiniShell">MiniShell</a> -<i> C</i></li>
+                <li><a href="https://github.com/alaabenfatma/Diaballik">Diaballik</a> - <i>Java</i></li>
+                <li><a href="https://github.com/hediturki123/FtpPseudoServer">FtpPseudoServer</a> - <i>C</i></li>
+                <li><a href="https://github.com/hediturki123/PetitsChevaux">PetitsChevaux</a> -<i> C</i></li>
+            </h3>
+            <hr />
+        </section>
 
-    <hr />
-
-
-
-    <h2>Compétences</h2>
-    <hr />
-    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-
-    <hr />
-
-    <h3>Hobbies</h3>
-    <ol>
-        <li>
-            Voyages
-        </li>
-        <li>
-            Football
-        </li>
-    </ol>
-
+        <section id="langues">
+            <h2>Langues</h2>
+            <hr />
+            <h3 style="margin-left: 50px;">
+                <li>Français - C2</li>
+                <li>Arabe - C2</li>
+                <li>Anglais - C1</li>
+                <li>Italien - C1</li>
+            </h3>
+            <hr />
+        </section>
+        <h3>Hobbies</h3>
+        <ol>
+            <li>
+                Voyages
+            </li>
+            <li>
+                Football
+            </li>
+        </ol>
+    </main>
     <footer>
         <a href="cv_Alexis_Yvon.html">Mon collègue Alexis YVON →</a>
     </footer>
