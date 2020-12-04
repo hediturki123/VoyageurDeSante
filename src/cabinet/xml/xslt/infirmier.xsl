@@ -9,7 +9,7 @@
     <xsl:param name="destinedId">001</xsl:param>
     <xsl:variable name="visites" select="//cm:patient/cm:visite[@intervenant=$destinedId]"/>
     <xsl:variable name="intervenant" select="//cm:infirmier[@id=$destinedId]"/>
-    <xsl:variable name="ngap" select="document('../xml/actes.xml', /)/ngap"/>
+    <xsl:variable name="ngap" select="document('../data/actes.xml', /)/ngap"/>
     <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyzšœÿàáâãäåæçèéêëìíîïðñòóôöøùúûüýþ'" />
     <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZŠŒŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÖØÙÚÛÜÝÞ'" />
 
@@ -27,8 +27,8 @@
                 </title>
 
                 <!-- CSS -->
-                <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
-                <link rel="stylesheet" href="../../css/main.css"/>
+                <link rel="stylesheet" href="css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="css/main.css"/>
             </head>
             <body>
                 <section class="container-fluid">
@@ -36,7 +36,7 @@
                         <div class="media">
                             <xsl:element name="img">
                                 <xsl:attribute name="src">
-                                    <xsl:text>../../img/infirmier/</xsl:text>
+                                    <xsl:text>img/infirmier/</xsl:text>
                                     <xsl:value-of select="//cm:infirmier[@id=$destinedId]/cm:photo"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="alt"><xsl:value-of select="//cm:infirmier[@id=$destinedId]/cm:prénom"/></xsl:attribute>
@@ -54,26 +54,8 @@
 
                 <!-- JS -->
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"/>
-                <script src="../js/bootstrap.min.js"/>
-                <script>
-                    <![CDATA[
-                    function openFacture(prenom, nom, actes) {
-                        var width  = 500;
-                        var height = 300;
-                        if(window.innerWidth) {
-                            var left = (window.innerWidth-width)/2;
-                            var top = (window.innerHeight-height)/2;
-                        }
-                        else {
-                            var left = (document.body.clientWidth-width)/2;
-                            var top = (document.body.clientHeight-height)/2;
-                        }
-                        var factureWindow = window.open('','facture','menubar=yes, scrollbars=yes, top='+top+', left='+left+', width='+width+', height='+height+'');
-                        factureText = "Facture pour : " + prenom + " " + nom;
-                        factureWindow.document.write(factureText);
-                        }
-                    ]]>
-                </script>
+                <script src="js/bootstrap.min.js"/>
+                <script src="js/facture.js"></script> 
             </body>
         </html>
     </xsl:template>
@@ -92,14 +74,13 @@
     <xsl:template match="cm:visite">
         <xsl:variable name="patient" select=".."/>
         <xsl:variable name="actesPatient" select="cm:acte"/>
-        <!-- <xsl:variable name="nirPatient" select="../cm:numéro"/> -->
         <xsl:variable name="dateVisite" select="@date"/>
 
         <li itemscope="" itemtype="https://schema.org/Patient" class="list-group-item">
             <div class="media">
                 <xsl:element name="img">
                     <xsl:attribute name="src">
-                        <xsl:text>../../img/patient/</xsl:text>
+                        <xsl:text>img/patient/</xsl:text>
                         <xsl:value-of select="$patient/cm:nom"/>
                         <xsl:text>_</xsl:text>
                         <xsl:value-of select="$patient/cm:prénom"/>
@@ -170,9 +151,9 @@
                         <xsl:attribute name="type">button</xsl:attribute>
                         <xsl:attribute name="class">btn btn-primary</xsl:attribute>
                         <xsl:attribute name="onclick">
-                            openFacture('<xsl:value-of select="$patient/cm:prénom"/>',
+                            afficherFacture('<xsl:value-of select="$patient/cm:prénom"/>',
                             '<xsl:value-of select="$patient/cm:nom"/>',
-                            '<xsl:value-of select="$patient/cm:visite/cm:acte"/>')
+                            '<xsl:value-of select="$patient/cm:visite/cm:acte/@id"/>')
                         </xsl:attribute>
                         <xsl:text>Facture</xsl:text>
                     </xsl:element>

@@ -19,8 +19,8 @@
                 </title>
 
                 <!-- CSS -->
-                <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
-                <link rel="stylesheet" href="../../css/main.css"/>
+                <link rel="stylesheet" href="css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="css/main.css"/>
             </head>
             <body>
                 <xsl:apply-templates select="patient"/>
@@ -34,7 +34,7 @@
                 <div class="media">
                     <xsl:element name="img">
                         <xsl:attribute name="src">
-                            <xsl:text>../../img/patient/</xsl:text>
+                            <xsl:text>img/patient/</xsl:text>
                             <xsl:value-of select="nom"/>
                             <xsl:text>_</xsl:text>
                             <xsl:value-of select="prénom"/>

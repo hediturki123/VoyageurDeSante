@@ -4,7 +4,7 @@
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 
     <xsl:param name="destinedName">Orouge</xsl:param>
-    <xsl:variable name="ngap" select="document('../xml/actes.xml', /)/ngap"/>
+    <xsl:variable name="ngap" select="document('../data/actes.xml', /)/ngap"/>
 
     <xsl:template match="/">
         <xsl:text>&#013;</xsl:text>
